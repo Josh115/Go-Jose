@@ -1,0 +1,3 @@
+SelenaH -- 2022-10-28 7:20\n
+In design_wiki0, we included examples of how our tables would be organized but the examples weren't directly tied to the wiki topic we chose.Team Metamorphosis gave us feedback to include examples directly related to our chosen topic in the future.\n
+They also suggested that we include how we're going to deal with the potential errors that might come up if we allow users to directly edit the HTML of a page they want to edit.
