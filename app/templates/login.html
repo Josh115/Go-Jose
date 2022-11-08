@@ -10,15 +10,16 @@
     <h3>
       Enter your username and password below to proceed.
     </h3>
-    <form action="/login" method="POST"> <!--make sure action is correct-->
+    <form action="/" method="POST"> <!--make sure action is correct-->
       <input type="text" name="username" placeholder="username">
       <input type="text" name="password" placeholder="password">
       <input type="submit" name="sub1">
     </form>
+    <p>{{response}}</p>
     <h3>
       New?
     </h3>
-    <form action="/register.html">
+    <form action="/register">
       <button>register</button>
     </form>
   </body>
