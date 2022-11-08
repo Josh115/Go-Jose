@@ -19,3 +19,7 @@ I changed Add_story.html to create.html and updated the form for creating a new 
 JoshuaL -- 2022-11-8 2:14
 I started working on the Flask portion of the project, connecting up the different templates and allowing logging in. 
     I changed some of the html to fit with the code. Still have to implement sessions.
+
+GordonM -- 2022-11-8 5:00
+I created a python file that makes the database using SQLite3. The database contains the four tables that we specified on the design doc: user table, link table, story table,
+	and contribution table. As of right now, the tables are empty. Will need to implement methods to access and edit these tables. 
