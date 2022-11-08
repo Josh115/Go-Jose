@@ -21,15 +21,20 @@ def login_page():
                 return redirect(url_for("home_page")) 
             return render_template("login.html", response="Wrong Password")
         return render_template("login.html", response="Username not found")
-    
 
+# ADD LATER
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    return render_template("register.html") 
 
 @app.route("/home", methods=["GET", "POST"])
 def home_page():
     return render_template("index.html")
+
+@app.route("/logout")
+def logout():
+    # Add session stuff HERE
+    return redirect(url_for("login_page")) 
 
 if __name__ == "__main__":
     app.debug = True
