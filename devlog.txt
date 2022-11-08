@@ -1,8 +1,12 @@
-SelenaH -- 2022-10-28 7:20\n
-In design_wiki0, we included examples of how our tables would be organized but the examples weren't directly tied to the wiki topic we chose.Team Metamorphosis gave us feedback to include examples directly related to our chosen topic in the future.\n
-They also suggested that we include how we're going to deal with the potential errors that might come up if we allow users to directly edit the HTML of a page they want to edit.
+SelenaH -- 2022-10-28 7:20
+In design_wiki0, we included examples of how our tables would be organized but the examples weren't directly tied to the wiki topic we chose.
+	Team Metamorphosis gave us feedback to include examples directly related to our chosen topic in the future.
+	They also suggested that we include how we're going to deal with the potential errors that might come up if we allow users to directly edit the HTML of a page they want to edit.
 
-Joshua Liu — 2022-11-2 11:30
+JoshuaL -- 2022-11-2 11:30
 Design Doc changes: We made slight tweaks in the site map and added new ideas to add once we have the basic framework of the website working. 
     Story ids are going to start at 1 and increase with each new story, (eg. 1, 2, 3 . .) The id can also be used to search for certain stories.
     Usernames should be unique so if the username already exists, alert the user and send them back to the registration page.
+
+SelenaH -- 2022-11-7 2:05
+Added the html files that we started working on during class. (index, login, register, Add_story)
