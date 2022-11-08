@@ -2,14 +2,28 @@
 
 <html>
     <head>
-        <title>MAIN PAGE</title>
+        <title>HOME PAGE</title>
     </head>
 
     <body>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#Collaborated_on">You've Collaborated On</a>
+            <a href="#Existing_stories">Existing Stories</a>
+            <button type="submit" action="/logout">Logout</button>
+        </nav>
         <form>
-            <a href="Add_story.html"><button>Add Story</button></a>
+            <a href="create.html"><button type="button">Add Story</button></a>
         </form>
-        <h1>You've Collaborated On</h1>
-        <h1>Existing Stories</h1>
+        <h1 id="Collaborated_on">You've Collaborated On</h1>
+        <!--Display stories that have been edited by this specific user here-->
+        <h1 id="Existing_stories">Existing Stories</h1>
+        <!--Display stories that have not been edited by the user here-->
+        <!--probably with a for loop like this     
+            {% for item in collection %}
+                {{ item }}
+                <br>
+            {% endfor %}
+        -->
     </body>
 </html>

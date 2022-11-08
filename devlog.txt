@@ -10,3 +10,8 @@ Design Doc changes: We made slight tweaks in the site map and added new ideas to
 
 SelenaH -- 2022-11-7 2:05
 Added the html files that we started working on during class. (index, login, register, Add_story)
+
+SelenaH -- 2022-11-8 12:08
+I changed Add_story.html to create.html and updated the form for creating a new story. I also added the edit.html file with the form to edit the story.
+    Added a nav bar to index.html. 
+    Changed the actions for the login and register forms in login.html and register.html, respectively, to correspond to what their routes would be in flask.
