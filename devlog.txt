@@ -15,3 +15,7 @@ SelenaH -- 2022-11-8 12:08
 I changed Add_story.html to create.html and updated the form for creating a new story. I also added the edit.html file with the form to edit the story.
     Added a nav bar to index.html. 
     Changed the actions for the login and register forms in login.html and register.html, respectively, to correspond to what their routes would be in flask.
+
+JoshuaL -- 2022-11-8 2:14
+I started working on the Flask portion of the project, connecting up the different templates and allowing logging in. 
+    I changed some of the html to fit with the code. Still have to implement sessions.
