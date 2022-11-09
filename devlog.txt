@@ -23,3 +23,7 @@ I started working on the Flask portion of the project, connecting up the differe
 GordonM -- 2022-11-8 5:00
 I created a python file that makes the database using SQLite3. The database contains the four tables that we specified on the design doc: user table, link table, story table,
 	and contribution table. As of right now, the tables are empty. Will need to implement methods to access and edit these tables. 
+
+GordonM -- 2022-11-9 4:57
+I added a conditional that creates the database if the database does not exist. I had to import os to do this.
+    Will have to add composite key for contribution table. 
