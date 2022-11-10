@@ -41,3 +41,7 @@ Imported db.py into app.py.
 	Added check_same_thread=False to sqlite3.connect because I was getting a same thread programming error.
 	Same thread programming error seemed to be because I was using the database related function in app.py when the function originated from db.py which means that it's not in the same thread (not entirely sure).
 	According to documentation (https://docs.python.org/3/library/sqlite3.html): "If False, the connection may be shared across multiple threads"
+
+GordonM -- 2022-11-9 9:52
+Made a minor change where I made the contribution table to contain a primary key called user_story_pk that is made up of a combination of the user_id and story_id columns.
+	So every combination of user_id and story_id must be unique in the contribution table. 
