@@ -45,3 +45,7 @@ Imported db.py into app.py.
 GordonM -- 2022-11-9 9:52
 Made a minor change where I made the contribution table to contain a primary key called user_story_pk that is made up of a combination of the user_id and story_id columns.
 	So every combination of user_id and story_id must be unique in the contribution table. 
+	
+SelenaH -- 2022-11-10 2:04
+Added add_User and updated the readme.
+	Need to use ? instead of f strings.
