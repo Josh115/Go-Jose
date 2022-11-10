@@ -32,3 +32,12 @@ SelenaH -- 2022-11-9 7:24
 I modified the code that creates the tables so we don't need to import os (used if not exists to create tables instead).
 	I added User_exists(username) and User_pass_match(username, passoword) methods to be used when logging in and registering.
 	User table has a user with username "user" and password "pass" to run test cases. 
+
+SelenaH -- 2022-11-9 9:15
+Imported db.py into app.py.
+	Connected logging in in app.py to database by using User_pass_match function.
+	Originally got "ProgrammingError: Cannot operate on a closed cursor." and fixed it by opening and closing cursors within each function in db.py and deleted db.close() and the end of db.py.
+	I think I needed to get rid of db.close() in the file because it would close the connection to the database after the python script was run once.
+	Added check_same_thread=False to sqlite3.connect because I was getting a same thread programming error.
+	Same thread programming error seemed to be because I was using the database related function in app.py when the function originated from db.py which means that it's not in the same thread (not entirely sure).
+	According to documentation (https://docs.python.org/3/library/sqlite3.html): "If False, the connection may be shared across multiple threads"

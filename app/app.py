@@ -5,7 +5,7 @@ SoftDev
 '''
 
 from flask import Flask, session, render_template, request, redirect, url_for
-
+from db import User_pass_match
 
 app = Flask(__name__)
 username = "user"
@@ -16,11 +16,9 @@ def login_page():
     if(request.method == "GET"): # returns the base page if the user is opening the page
         return render_template("login.html")
     else:   # This checks for the login info
-        if(request.form.get("username") == username):
-            if(request.form.get("password") == password):
-                return redirect(url_for("home_page")) 
-            return render_template("login.html", response="Wrong Password")
-        return render_template("login.html", response="Username not found")
+        if(User_pass_match(request.form.get("username"), request.form.get("password"))):
+            return redirect(url_for("home_page"))
+        return render_template("login.html", response="The username or password you entered does not exist.")
 
 # ADD LATER
 @app.route("/register", methods=["GET", "POST"])
