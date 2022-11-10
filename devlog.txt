@@ -26,4 +26,9 @@ I created a python file that makes the database using SQLite3. The database cont
 
 GordonM -- 2022-11-9 4:57
 I added a conditional that creates the database if the database does not exist. I had to import os to do this.
-    Will have to add composite key for contribution table. 
+    Will have to add composite key for contribution table.
+
+SelenaH -- 2022-11-9 7:24
+I modified the code that creates the tables so we don't need to import os (used if not exists to create tables instead).
+	I added User_exists(username) and User_pass_match(username, passoword) methods to be used when logging in and registering.
+	User table has a user with username "user" and password "pass" to run test cases. 
