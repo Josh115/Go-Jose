@@ -47,5 +47,9 @@ Made a minor change where I made the contribution table to contain a primary key
 	So every combination of user_id and story_id must be unique in the contribution table. 
 	
 SelenaH -- 2022-11-10 2:04
-Added add_User and updated the readme.
+Added Add_user and updated the readme.
 	Need to use ? instead of f strings.
+
+SelenaH -- 2022-11-10 5:33
+Updated readme. Added Add_new_story(title,story) and updated the sqlite related functions to use ? instead of f strings.
+	Got rid of autoincrement and using "select max(<id>) from <table>" + 1 instead as the value for the primary key.
