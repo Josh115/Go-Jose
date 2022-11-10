@@ -10,8 +10,8 @@ DB_FILE = "discobandit.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor() 
-c.executescript("""create table if not exists user(user_id int primary key, username text, password text);
-create table if not exists story(story_id int primary key, title text, content text, recent text);
+c.executescript("""create table if not exists user(user_id int primary key autoincrement, username text, password text);
+create table if not exists story(story_id int primary key autoincrement, title text, content text, recent text);
 create table if not exists links(page text, url text);
 create table if not exists contribution(user_id int, story_id int, PRIMARY KEY (user_id, story_id));
 """)
@@ -52,6 +52,7 @@ def Add_user(username, password):
         c = db.cursor()
         c.execute(f'insert into user values({username}, {password}')
         c.close()
-        
+
+def Add_new_story()
 
 db.commit() #save changes
