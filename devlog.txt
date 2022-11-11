@@ -53,3 +53,9 @@ Added Add_user and updated the readme.
 SelenaH -- 2022-11-10 5:33
 Updated readme. Added Add_new_story(title,story) and updated the sqlite related functions to use ? instead of f strings.
 	Got rid of autoincrement and using "select max(<id>) from <table>" + 1 instead as the value for the primary key.
+
+JoshuaL -- 2022-11-10 10:36
+Added functionality to the register page, the page now allows the user to register themselves if they provide valid usernames and matching passowrds
+	Also added sessions so the user can stay logged in until they log out. The home page displays the user's username for more transparency.
+	Added requirements.txt
+	Other small changes to the login page.(responses to failed messages are changed)
