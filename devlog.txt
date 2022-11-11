@@ -59,3 +59,6 @@ Added functionality to the register page, the page now allows the user to regist
 	Also added sessions so the user can stay logged in until they log out. The home page displays the user's username for more transparency.
 	Added requirements.txt
 	Other small changes to the login page.(responses to failed messages are changed)
+
+GordonM -- 2022-11-10 10:51
+Added Edit_story function. 

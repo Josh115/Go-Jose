@@ -73,7 +73,12 @@ def Add_new_story(title, story):
         c.execute("insert into story values(?, ?, ?, ?)", (id, title, story, story))
         c.close()
 
-#def Edit_story(edit):
+def Edit_story(edit, id):
+        c = db.cursor()
+        c.execute("select content from story where story_id = ?", (id))
+        content = "/n" + str(c.fetchone()[0]) + str(edit)
+        c.executescript("update story set recent = ?, content = ? where story_id = ?",
+                        (str(edit), content, id))
 
 #def get_User_Id(username):
 #def get_Story_Id(title):
