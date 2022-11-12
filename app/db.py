@@ -59,6 +59,7 @@ def Add_user(username, password):
         else:
                 id += 1
         c.execute('insert into user values(?, ?, ?)', (id, str(username), str(password)))
+        db.commit()
         c.close()
 
 def Add_new_story(title, story):
@@ -71,6 +72,7 @@ def Add_new_story(title, story):
                 id += 1
         #print(id)
         c.execute("insert into story values(?, ?, ?, ?)", (id, title, story, story))
+        db.commit()
         c.close()
 
 def Edit_story(edit, id):

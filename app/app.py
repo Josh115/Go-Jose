@@ -5,7 +5,7 @@ SoftDev
 '''
 
 from flask import Flask, session, render_template, request, redirect, url_for
-from db import User_pass_match, User_exists, Add_user
+from db import User_pass_match, User_exists, Add_user, Add_new_story
 
 app = Flask(__name__)
 app.secret_key = "7fcedd7bae46a71475254f9af6731a19a56527505cb6412f67521fcb7ea030e5"
@@ -42,9 +42,19 @@ def register():
 def home_page():
     return render_template("index.html", USER=session.get("username"))
 
+@app.route("/create_go", methods=["GET", "POST"])
+def create_story_page():
+    return render_template("create.html")
+
+@app.route("/create", methods=["GET", "POST"])
+def create_story():
+    if request.method == "POST": # If the user is returning from a create story form.
+        Add_new_story(request.form.get("New_title"), request.form.get("New_story")) # add story to db.
+        return redirect(url_for("home_page")) # send them back to home page.
+
 @app.route("/logout")
 def logout():
-    session.pop("username",None)
+    session.pop("username",None) # removes session info
     return redirect(url_for("login_page")) 
 
 if __name__ == "__main__":
