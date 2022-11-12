@@ -62,3 +62,7 @@ Added functionality to the register page, the page now allows the user to regist
 
 GordonM -- 2022-11-10 10:51
 Added Edit_story function. 
+
+JoshuaL -- 2022-11-11 10:50
+Connected up the add story button with the html page and made it so it adds to the database when that form is submitted. 
+	also added db.commits to some functions in db.py so that the changes would stay.
