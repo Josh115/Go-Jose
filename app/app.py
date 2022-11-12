@@ -31,10 +31,10 @@ def register():
         return render_template("register.html")
     else:
         if(not User_exists(request.form.get("username"))):
-            if(request.form.get("Password_confirm") == request.form.get("password")):
-                Add_user(request.form.get("username"), request.form.get("password"))
-                session["username"] = request.form.get("username")
-                return redirect(url_for("home_page"))
+            if(request.form.get("Password_confirm") == request.form.get("password")): # Both passwords match.
+                Add_user(request.form.get("username"), request.form.get("password")) # Add the user to db.
+                session["username"] = request.form.get("username") # make sure the user info is saved to cookies
+                return redirect(url_for("home_page")) # turn the user to home page
             return render_template("register.html", response="The passwords you entered do not match")
         return render_template("register.html", response="Username already exists")
 
