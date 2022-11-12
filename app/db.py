@@ -81,9 +81,42 @@ def Edit_story(edit, id):
         content = "/n" + str(c.fetchone()[0]) + str(edit)
         c.executescript("update story set recent = ?, content = ? where story_id = ?",
                         (str(edit), content, id))
+        db.commit()
+        c.close()
 
-#def get_User_Id(username):
-#def get_Story_Id(title):
+def get_User_Id(username):
+    #only works if user exists
+    c = db.cursor()
+    c.execute("select user_id from user where username = ?", (str(username),))
+    userID = c.fetchone()[0]
+    c.close()
+    return userID
+
+def get_Story_Id(title):
+    c = db.cursor()
+    c.execute("select story_id from story where title = ?", (str(title),))
+    storyID = c.fetchone()[0]
+    c.close()
+    return storyID
 #both functions used to facilitate adding to contribution table?
+
+def contributors(username, title):
+    c = db.cursor()
+    c.execute("insert into contribution values(?,?)", (get_User_Id(username), get_Story_Id(title)))
+    db.commit()
+    c.close()
+    
+#test
+#print(get_User_Id("user"))
+#print(get_Story_Id("titley"))
+
+def all_Stories():
+    c = db.cursor()
+    c.execute("select title from story")
+    list_of_stories = [x[0] for x in c.fetchall()]
+    c.close()
+    return list_of_stories
+
+print(all_Stories())
 
 db.commit() #save changes
