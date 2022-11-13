@@ -8,8 +8,9 @@
     <body>
         <h1>{{title}}</h1> <!--title of the story-->
         <p>{{Most_recent}}</p> <!--Most recent is just the most recent addition to the story-->
-        <form action="/edit">
+        <form action="/edit" method="POST">
             <textarea name="addition" placeholder="Add to the story here..."></textarea>
+            <input type="hidden" name="story_id" value={{story_id}}>
             <button type="submit">Submit</button>
         </form>
     </body>

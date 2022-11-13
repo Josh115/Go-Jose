@@ -5,7 +5,7 @@ SoftDev
 '''
 
 from flask import Flask, session, render_template, request, redirect, url_for
-from db import User_pass_match, User_exists, Add_user, Add_new_story, add_contributor, get_User_Id, get_collaborated, get_max_id, get_most_recent, get_content, get_title
+from db import User_pass_match, User_exists, Add_user, Add_new_story, add_contributor, get_User_Id, get_collaborated, get_max_id, get_most_recent, get_content, get_title, Edit_story
 
 app = Flask(__name__)
 app.secret_key = "7fcedd7bae46a71475254f9af6731a19a56527505cb6412f67521fcb7ea030e5"
@@ -52,15 +52,21 @@ def home_page():
     i = 0
     while(i <= max_id): 
         if(i in list1):
-            existing_story[i] = (get_title(i), get_most_recent(i))
+            collaborated_story[i] = (get_title(i), get_content(i).replace("\n", "<br>"))
         else:
-            collaborated_story[i] = (get_title(i), get_content(i))
+            existing_story[i] = (get_title(i), get_most_recent(i).replace("\n", "<br>"))
+        i+=1
     return render_template("index.html", USER=session.get("username"), collaborated=collaborated_story, existing=existing_story)
 
 @app.route("/edit", methods=["GET", "POST"] )
 def edit():
     if request.method == "GET":
-        return 
+        #print(request.args.get("story_id"))
+        return render_template("edit.html", story_id=request.args.get("story_id"))
+    else:
+        Edit_story(request.form.get("addition"), request.form.get("story_id"))
+        add_contributor(session.get("username"), request.form.get("story_id"))
+        return redirect(url_for("home_page"))
 
 @app.route("/create_go", methods=["GET", "POST"])
 def create_story_page():

@@ -81,3 +81,6 @@ Added get_collaborated(username), get_max_id(table), get_most_recent(story_id), 
 
 JoshuaL -- 2022-11-12 9:15 PM
 Changed index.html to include the for loops to display the stories. website not loading :(
+
+JoshuaL -- 2022-11-12 10:27 PM
+Backend works ! ? !:  ++edit story works contributed and existing stories works, still need to add css.

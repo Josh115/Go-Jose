@@ -21,7 +21,7 @@
         <!--Display stories that have been edited by this specific user here-->
             {% for key in collaborated %}
                 <h2> {{ collaborated.get(key)[0] }} </h2>
-                <p> {{ collaborated.get(key)[1] }} </p>
+                <p> {{ collaborated.get(key)[1]|safe }} </p>
             {% endfor %}
             
         <h1 id="Existing_stories">Existing Stories</h1>
@@ -30,9 +30,9 @@
                 <h2> {{ existing.get(key)[0] }} </h2> 
                     <form action="/edit">
                         <button type="submit">edit</button>
-                        <input type="hidden", value="{{key}}">
+                        <input type="hidden" name="story_id" value="{{key}}">
                     </form>
-                <p> {{ existing.get(key)[1] }} </p>
+                <p> {{ existing.get(key)[1]|safe }} </p> 
             {% endfor %}
             
         <p>Logged in As: {{USER}}</p>

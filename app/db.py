@@ -79,8 +79,8 @@ def Add_new_story(title, story):
 def Edit_story(edit, id):
         c = db.cursor()
         c.execute("select content from story where story_id = ?", (id,))
-        content = "/n" + str(c.fetchone()[0]) + str(edit)
-        c.executescript("update story set recent = ?, content = ? where story_id = ?",
+        content = str(c.fetchone()[0]) + "</br>" + str(edit)
+        c.execute("update story set recent = ?, content = ? where story_id = ?",
                         (str(edit), content, id))
         db.commit()
         c.close()
