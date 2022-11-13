@@ -120,9 +120,10 @@ def all_Stories():
 
 #print(all_Stories())
 
-def get_max_id(table):
+#gets max_id from story
+def get_max_id():
     c = db.cursor()
-    c.execute("select max(story_id) from ?", (str(table),))
+    c.execute("select max(story_id) from story") 
     max_id = c.fetchone()[0]
     c.close()
     return max_id
@@ -138,21 +139,21 @@ def get_collaborated(username):
 
 def get_most_recent(story_id):
     c = db.cursor()
-    c.execute("select recent from table where story_id = ?", (story_id,))
+    c.execute("select recent from story where story_id = ?", (story_id,))
     most_recent = c.fetchone()[0]
     c.close()
     return most_recent
 
 def get_title(story_id):
     c = db.cursor()
-    c.execute("select title from table where story_id = ?", (story_id,))
+    c.execute("select title from story where story_id = ?", (story_id,))
     title = c.fetchone()[0]
     c.close()
     return title
     
 def get_content(story_id):
     c = db.cursor()
-    c.execute("select content from table where story_id = ?", (story_id,))
+    c.execute("select content from story where story_id = ?", (story_id,))
     content = c.fetchone()[0]
     c.close()
     return content

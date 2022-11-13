@@ -5,7 +5,7 @@ SoftDev
 '''
 
 from flask import Flask, session, render_template, request, redirect, url_for
-from db import User_pass_match, User_exists, Add_user, Add_new_story, add_contributor, get_User_Id
+from db import User_pass_match, User_exists, Add_user, Add_new_story, add_contributor, get_User_Id, get_collaborated, get_max_id, get_most_recent, get_content, get_title
 
 app = Flask(__name__)
 app.secret_key = "7fcedd7bae46a71475254f9af6731a19a56527505cb6412f67521fcb7ea030e5"
@@ -31,16 +31,36 @@ def register():
         return render_template("register.html")
     else:
         if(not User_exists(request.form.get("username"))):
-            if(request.form.get("Password_confirm") == request.form.get("password")): # Both passwords match.
-                Add_user(request.form.get("username"), request.form.get("password")) # Add the user to db.
-                session["username"] = request.form.get("username") # make sure the user info is saved to COOKIES
-                return redirect(url_for("home_page")) # redirects the user to home page
-            return render_template("register.html", response="The passwords you entered do not match")
+            if(len(request.form.get("username")) > 2):
+                if(len(request.form.get("password")) > 0):
+                    if(request.form.get("Password_confirm") == request.form.get("password")): # Both passwords match.
+                        Add_user(request.form.get("username"), request.form.get("password")) # Add the user to db.
+                        session["username"] = request.form.get("username") # make sure the user info is saved to COOKIES
+                        return redirect(url_for("home_page")) # redirects the user to home page
+        # These are responses for failed resgistrations 
+                    return render_template("register.html", response="The passwords you entered do not match")
+                return render_template("register.html", response="Passwords cannot be blank!")
+            return render_template("register.html", response="Username is too short!")
         return render_template("register.html", response="Username already exists")
 
 @app.route("/home", methods=["GET", "POST"])
 def home_page():
-    return render_template("index.html", USER=session.get("username"))
+    collaborated_story = {}
+    existing_story = {}
+    list1 = get_collaborated(session.get("username"))
+    max_id = get_max_id() 
+    i = 0
+    while(i <= max_id): 
+        if(i in list1):
+            existing_story[i] = (get_title(i), get_most_recent(i))
+        else:
+            collaborated_story[i] = (get_title(i), get_content(i))
+    return render_template("index.html", USER=session.get("username"), collaborated=collaborated_story, existing=existing_story)
+
+@app.route("/edit", methods=["GET", "POST"] )
+def edit():
+    if request.method == "GET":
+        return 
 
 @app.route("/create_go", methods=["GET", "POST"])
 def create_story_page():
@@ -57,6 +77,7 @@ def create_story():
 def logout():
     session.pop("username",None) # removes session info
     return redirect(url_for("login_page")) 
+
 
 if __name__ == "__main__":
     app.debug = True

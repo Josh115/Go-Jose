@@ -19,14 +19,22 @@
         </form>
         <h1 id="Collaborated_on">You've Collaborated On</h1>
         <!--Display stories that have been edited by this specific user here-->
+            {% for key in collaborated %}
+                <h2> {{ collaborated.get(key)[0] }} </h2>
+                <p> {{ collaborated.get(key)[1] }} </p>
+            {% endfor %}
+            
         <h1 id="Existing_stories">Existing Stories</h1>
         <!--Display stories that have not been edited by the user here-->
-        <!--probably with a for loop like this     
-            {% for item in collection %}
-                {{ item }}
-                <br>
+            {% for key in existing %}
+                <h2> {{ existing.get(key)[0] }} </h2> 
+                    <form action="/edit">
+                        <button type="submit">edit</button>
+                        <input type="hidden", value="{{key}}">
+                    </form>
+                <p> {{ existing.get(key)[1] }} </p>
             {% endfor %}
-        -->
+            
         <p>Logged in As: {{USER}}</p>
     </body>
 </html>
