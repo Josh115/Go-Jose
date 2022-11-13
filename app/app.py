@@ -5,7 +5,7 @@ SoftDev
 '''
 
 from flask import Flask, session, render_template, request, redirect, url_for
-from db import User_pass_match, User_exists, Add_user, Add_new_story
+from db import User_pass_match, User_exists, Add_user, Add_new_story, add_contributor, get_User_Id
 
 app = Flask(__name__)
 app.secret_key = "7fcedd7bae46a71475254f9af6731a19a56527505cb6412f67521fcb7ea030e5"
@@ -21,7 +21,7 @@ def login_page():
             if(User_pass_match(request.form.get("username"), request.form.get("password"))):
                 session["username"] = request.form.get("username")
                 return redirect(url_for("home_page"))
-        # these are for failed logins
+        # these are responses for failed logins:
             return render_template("login.html", response="The password you entered does not match the username.") # displays responses based on error
         return render_template("login.html", response="The username you entered does not exist.")
 
@@ -33,8 +33,8 @@ def register():
         if(not User_exists(request.form.get("username"))):
             if(request.form.get("Password_confirm") == request.form.get("password")): # Both passwords match.
                 Add_user(request.form.get("username"), request.form.get("password")) # Add the user to db.
-                session["username"] = request.form.get("username") # make sure the user info is saved to cookies
-                return redirect(url_for("home_page")) # turn the user to home page
+                session["username"] = request.form.get("username") # make sure the user info is saved to COOKIES
+                return redirect(url_for("home_page")) # redirects the user to home page
             return render_template("register.html", response="The passwords you entered do not match")
         return render_template("register.html", response="Username already exists")
 
@@ -49,7 +49,8 @@ def create_story_page():
 @app.route("/create", methods=["GET", "POST"])
 def create_story():
     if request.method == "POST": # If the user is returning from a create story form.
-        Add_new_story(request.form.get("New_title"), request.form.get("New_story")) # add story to db.
+        story_id = Add_new_story(request.form.get("New_title"), request.form.get("New_story")) # add story to db.
+        add_contributor(session.get("username"), story_id) # adds the user-story pair to contributions table
         return redirect(url_for("home_page")) # send them back to home page.
 
 @app.route("/logout")

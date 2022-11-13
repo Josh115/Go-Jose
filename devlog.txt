@@ -63,10 +63,14 @@ Added functionality to the register page, the page now allows the user to regist
 GordonM -- 2022-11-10 10:51
 Added Edit_story function. 
 
-JoshuaL -- 2022-11-11 10:50
+JoshuaL -- 2022-11-11 10:50 PM
 Connected up the add story button with the html page and made it so it adds to the database when that form is submitted. 
 	also added db.commits to some functions in db.py so that the changes would stay.
 
 GordonM -- 2022-11-12 11:49
 Added methods that returned the user_id and story_id respectively. Those methods were used in the contributors method to add to the contribution table that keeps track of
 	what users added to what stories. Also added another method that makes a list of all the titles of stories in the database. 
+
+JoshuaL -- 2022-11-11 7:07 PM
+When the user adds a new story, thier id and the new story's id are added to the contribution table. 
+	I changed Add_new_story() in db.py to return the story id and add_contributor() to take in the story_id instead of the story_title.

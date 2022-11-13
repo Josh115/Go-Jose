@@ -74,6 +74,7 @@ def Add_new_story(title, story):
         c.execute("insert into story values(?, ?, ?, ?)", (id, title, story, story))
         db.commit()
         c.close()
+        return id # im returning the id so that we know the id of the story to add to the contributions table
 
 def Edit_story(edit, id):
         c = db.cursor()
@@ -100,9 +101,9 @@ def get_Story_Id(title):
     return storyID
 #both functions used to facilitate adding to contribution table?
 
-def contributors(username, title):
+def add_contributor(username, story_id): # I changed story title to story id so that the id would be put in directly, in case of repeat titles
     c = db.cursor()
-    c.execute("insert into contribution values(?,?)", (get_User_Id(username), get_Story_Id(title)))
+    c.execute("insert into contribution values(?,?)", (get_User_Id(username), story_id)) 
     db.commit()
     c.close()
     
