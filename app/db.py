@@ -78,7 +78,7 @@ def Add_new_story(title, story):
 
 def Edit_story(edit, id):
         c = db.cursor()
-        c.execute("select content from story where story_id = ?", (id))
+        c.execute("select content from story where story_id = ?", (id,))
         content = "/n" + str(c.fetchone()[0]) + str(edit)
         c.executescript("update story set recent = ?, content = ? where story_id = ?",
                         (str(edit), content, id))
@@ -113,11 +113,48 @@ def add_contributor(username, story_id): # I changed story title to story id so 
 
 def all_Stories():
     c = db.cursor()
-    c.execute("select title from story")
+    c.execute("select story_id from story")
     list_of_stories = [x[0] for x in c.fetchall()]
     c.close()
     return list_of_stories
 
-print(all_Stories())
+#print(all_Stories())
+
+def get_max_id(table):
+    c = db.cursor()
+    c.execute("select max(story_id) from ?", (str(table),))
+    max_id = c.fetchone()[0]
+    c.close()
+    return max_id
+
+#print(max_Story_Id())
+
+def get_collaborated(username):
+    c = db.cursor()
+    c.execute("select story_id from contribution where user_id = ?", (get_User_Id(username),))
+    collaborations = [x[0] for x in c.fetchall()]
+    c.close()
+    return collaborations
+
+def get_most_recent(story_id):
+    c = db.cursor()
+    c.execute("select recent from table where story_id = ?", (story_id,))
+    most_recent = c.fetchone()[0]
+    c.close()
+    return most_recent
+
+def get_title(story_id):
+    c = db.cursor()
+    c.execute("select title from table where story_id = ?", (story_id,))
+    title = c.fetchone()[0]
+    c.close()
+    return title
+    
+def get_content(story_id):
+    c = db.cursor()
+    c.execute("select content from table where story_id = ?", (story_id,))
+    content = c.fetchone()[0]
+    c.close()
+    return content
 
 db.commit() #save changes

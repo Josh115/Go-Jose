@@ -74,3 +74,8 @@ Added methods that returned the user_id and story_id respectively. Those methods
 JoshuaL -- 2022-11-11 7:07 PM
 When the user adds a new story, thier id and the new story's id are added to the contribution table. 
 	I changed Add_new_story() in db.py to return the story id and add_contributor() to take in the story_id instead of the story_title.
+
+GordonM -- 2022-11-12 8:52 
+Added get_collaborated(username), get_max_id(table), get_most_recent(story_id), get_title(story_id), get_content(story_id). 
+	Corrected all_stories to return a list of ids instead of titles.
+of 
