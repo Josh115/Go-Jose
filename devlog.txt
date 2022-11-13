@@ -84,3 +84,6 @@ Changed index.html to include the for loops to display the stories. website not 
 
 JoshuaL -- 2022-11-12 10:27 PM
 Backend works ! ? !:  ++edit story works contributed and existing stories works, still need to add css.
+
+SelenaH -- 2022-11-13 3:21
+Added CSS for register and login page. Fixed formatting of readme.

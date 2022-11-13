@@ -4,23 +4,32 @@
 
   <head>
     <title> LOGIN PAGE </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
   </head>
 
   <body>
     <h3>
-      Enter your username and password below to proceed.
+      Sign In
     </h3>
-    <form action="/" method="POST"> <!--make sure action is correct-->
-      <input type="text" name="username" placeholder="username">
-      <input type="text" name="password" placeholder="password">
-      <input type="submit" name="sub1">
-    </form>
-    <p>{{response}}</p>
-    <h3>
-      New?
-    </h3>
-    <form action="/register" method="GET">
-      <button>register</button>
-    </form>
+      <form action="/" method="POST"> <!--make sure action is correct-->
+        <input type="text" name="username" placeholder="username">
+        <input type="text" name="password" placeholder="password">
+        <input type="submit" name="sub1" value="Sign In">
+      </form>
+      <p>{{response}}</p>
+      <div class="register">
+        <p>
+          Don't have an account?
+        </p>
+        <form action="/register" method="GET">
+          <button>Sign Up</button>
+        </form>
+      </div>
+    <!-- <form action="/register" method="GET">
+      <button>Sign Up</button>
+    </form> -->
   </body>
 </html>
