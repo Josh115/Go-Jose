@@ -1,14 +1,14 @@
-SelenaH -- 2022-10-28 7:20
+SelenaH -- 2022-10-28 19:20
 In design_wiki0, we included examples of how our tables would be organized but the examples weren't directly tied to the wiki topic we chose.
 	Team Metamorphosis gave us feedback to include examples directly related to our chosen topic in the future.
 	They also suggested that we include how we're going to deal with the potential errors that might come up if we allow users to directly edit the HTML of a page they want to edit.
 
-JoshuaL -- 2022-11-2 11:30
+JoshuaL -- 2022-11-2 23:30
 Design Doc changes: We made slight tweaks in the site map and added new ideas to add once we have the basic framework of the website working. 
     Story ids are going to start at 1 and increase with each new story, (eg. 1, 2, 3 . .) The id can also be used to search for certain stories.
     Usernames should be unique so if the username already exists, alert the user and send them back to the registration page.
 
-SelenaH -- 2022-11-7 2:05
+SelenaH -- 2022-11-7 14:05
 Added the html files that we started working on during class. (index, login, register, Add_story)
 
 SelenaH -- 2022-11-8 12:08
@@ -20,20 +20,20 @@ JoshuaL -- 2022-11-8 2:14
 I started working on the Flask portion of the project, connecting up the different templates and allowing logging in. 
     I changed some of the html to fit with the code. Still have to implement sessions.
 
-GordonM -- 2022-11-8 5:00
+GordonM -- 2022-11-8 17:00
 I created a python file that makes the database using SQLite3. The database contains the four tables that we specified on the design doc: user table, link table, story table,
 	and contribution table. As of right now, the tables are empty. Will need to implement methods to access and edit these tables. 
 
-GordonM -- 2022-11-9 4:57
+GordonM -- 2022-11-9 16:57
 I added a conditional that creates the database if the database does not exist. I had to import os to do this.
     Will have to add composite key for contribution table.
 
-SelenaH -- 2022-11-9 7:24
+SelenaH -- 2022-11-9 19:24
 I modified the code that creates the tables so we don't need to import os (used if not exists to create tables instead).
 	I added User_exists(username) and User_pass_match(username, passoword) methods to be used when logging in and registering.
 	User table has a user with username "user" and password "pass" to run test cases. 
 
-SelenaH -- 2022-11-9 9:15
+SelenaH -- 2022-11-9 21:15
 Imported db.py into app.py.
 	Connected logging in in app.py to database by using User_pass_match function.
 	Originally got "ProgrammingError: Cannot operate on a closed cursor." and fixed it by opening and closing cursors within each function in db.py and deleted db.close() and the end of db.py.
@@ -42,53 +42,56 @@ Imported db.py into app.py.
 	Same thread programming error seemed to be because I was using the database related function in app.py when the function originated from db.py which means that it's not in the same thread (not entirely sure).
 	According to documentation (https://docs.python.org/3/library/sqlite3.html): "If False, the connection may be shared across multiple threads"
 
-GordonM -- 2022-11-9 9:52
+GordonM -- 2022-11-9 21:52
 Made a minor change where I made the contribution table to contain a primary key called user_story_pk that is made up of a combination of the user_id and story_id columns.
 	So every combination of user_id and story_id must be unique in the contribution table. 
 	
-SelenaH -- 2022-11-10 2:04
+SelenaH -- 2022-11-10 14:04
 Added Add_user and updated the readme.
 	Need to use ? instead of f strings.
 
-SelenaH -- 2022-11-10 5:33
+SelenaH -- 2022-11-10 17:33
 Updated readme. Added Add_new_story(title,story) and updated the sqlite related functions to use ? instead of f strings.
 	Got rid of autoincrement and using "select max(<id>) from <table>" + 1 instead as the value for the primary key.
 
-JoshuaL -- 2022-11-10 10:36
+JoshuaL -- 2022-11-10 22:36
 Added functionality to the register page, the page now allows the user to register themselves if they provide valid usernames and matching passowrds
 	Also added sessions so the user can stay logged in until they log out. The home page displays the user's username for more transparency.
 	Added requirements.txt
 	Other small changes to the login page.(responses to failed messages are changed)
 
-GordonM -- 2022-11-10 10:51
+GordonM -- 2022-11-10 22:51
 Added Edit_story function. 
 
-JoshuaL -- 2022-11-11 10:50 PM
+JoshuaL -- 2022-11-11 22:50
 Connected up the add story button with the html page and made it so it adds to the database when that form is submitted. 
 	also added db.commits to some functions in db.py so that the changes would stay.
 
-GordonM -- 2022-11-12 11:49
+GordonM -- 2022-11-12 23:49
 Added methods that returned the user_id and story_id respectively. Those methods were used in the contributors method to add to the contribution table that keeps track of
 	what users added to what stories. Also added another method that makes a list of all the titles of stories in the database. 
 
-JoshuaL -- 2022-11-12 7:07 PM
+JoshuaL -- 2022-11-12 19:07
 When the user adds a new story, thier id and the new story's id are added to the contribution table. 
 	I changed Add_new_story() in db.py to return the story id and add_contributor() to take in the story_id instead of the story_title.
 
-GordonM -- 2022-11-12 8:52 
+GordonM -- 2022-11-12 20:52 
 Added get_collaborated(username), get_max_id(table), get_most_recent(story_id), get_title(story_id), get_content(story_id). 
 	Corrected all_stories to return a list of ids instead of titles.
 
-JoshuaL -- 2022-11-12 9:15 PM
+JoshuaL -- 2022-11-12 21:15
 Changed index.html to include the for loops to display the stories. website not loading :(
 
-JoshuaL -- 2022-11-12 10:27 PM
+JoshuaL -- 2022-11-12 22:27
 Backend works ! ? !:  ++edit story works contributed and existing stories works, still need to add css.
 
-SelenaH -- 2022-11-13 3:21
+SelenaH -- 2022-11-13 15:21
 Added CSS for register and login page. Fixed formatting of readme.
 
-JoshuaL -- 2022-11-13 10:28 PM
+JoshuaL -- 2022-11-13 22:28
 Made some small fixes, editing a story will show the previous page along with the most recent edit and the title.
 	and the textarea for the title when adding a new story is now just a normal text input.
 	removed the home button on the home page.
+
+SelenaH -- 2022-11-14 18:24
+Finished CSS for all pages. Updated README formatting.
