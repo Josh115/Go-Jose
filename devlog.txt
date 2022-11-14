@@ -87,3 +87,8 @@ Backend works ! ? !:  ++edit story works contributed and existing stories works,
 
 SelenaH -- 2022-11-13 3:21
 Added CSS for register and login page. Fixed formatting of readme.
+
+JoshuaL -- 2022-11-13 10:28 PM
+Made some small fixes, editing a story will show the previous page along with the most recent edit and the title.
+	and the textarea for the title when adding a new story is now just a normal text input.
+	removed the home button on the home page.

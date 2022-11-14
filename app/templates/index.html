@@ -7,7 +7,6 @@
 
     <body>
         <nav>
-            <a href="index.html">Home</a>
             <a href="#Collaborated_on">You've Collaborated On</a>
             <a href="#Existing_stories">Existing Stories</a>
             <form action="/logout">
@@ -17,6 +16,7 @@
         <form action="/create_go">
             <button type="submit">Add Story</button>
         </form>
+        <p>Logged in As: {{USER}}</p>
         <h1 id="Collaborated_on">You've Collaborated On</h1>
         <!--Display stories that have been edited by this specific user here-->
             {% for key in collaborated %}
@@ -34,7 +34,5 @@
                     </form>
                 <p> {{ existing.get(key)[1]|safe }} </p> 
             {% endfor %}
-            
-        <p>Logged in As: {{USER}}</p>
     </body>
 </html>

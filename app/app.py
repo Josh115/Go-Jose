@@ -61,8 +61,8 @@ def home_page():
 @app.route("/edit", methods=["GET", "POST"] )
 def edit():
     if request.method == "GET":
-        #print(request.args.get("story_id"))
-        return render_template("edit.html", story_id=request.args.get("story_id"))
+        story_id = request.args.get("story_id")
+        return render_template("edit.html", story_id=story_id, title=get_title(story_id),Most_recent=get_most_recent(story_id).replace("\n", "<br>"))
     else:
         Edit_story(request.form.get("addition"), request.form.get("story_id"))
         add_contributor(session.get("username"), request.form.get("story_id"))
