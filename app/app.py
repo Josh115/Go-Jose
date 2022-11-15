@@ -50,6 +50,8 @@ def home_page():
     list1 = get_collaborated(session.get("username"))
     max_id = get_max_id() 
     i = 0
+    if max_id is None: # if the story db is empty
+        return render_template("index.html", USER=session.get("username"))
     while(i <= max_id): 
         if(i in list1):
             collaborated_story[i] = (get_title(i), get_content(i).replace("\n", "<br>"))

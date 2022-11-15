@@ -6,7 +6,7 @@ Softdev
 
 import sqlite3
 
-DB_FILE = "discobandit.db"
+DB_FILE = "dummy.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor() 

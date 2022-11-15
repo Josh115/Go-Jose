@@ -1,3 +1,23 @@
+Go-Jose!
+Selena Ho
+Gordon Mo
+Joshua Liu
+pd 8
+---------------------
+Storytelling website:
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
 SelenaH -- 2022-10-28 19:20
 In design_wiki0, we included examples of how our tables would be organized but the examples weren't directly tied to the wiki topic we chose.
 	Team Metamorphosis gave us feedback to include examples directly related to our chosen topic in the future.
@@ -83,7 +103,7 @@ JoshuaL -- 2022-11-12 21:15
 Changed index.html to include the for loops to display the stories. website not loading :(
 
 JoshuaL -- 2022-11-12 22:27
-Backend works ! ? !:  ++edit story works contributed and existing stories works, still need to add css.
+Backend works ! ? !:  edit story works contributed and existing stories works, still need to add css.
 
 SelenaH -- 2022-11-13 15:21
 Added CSS for register and login page. Fixed formatting of readme.
@@ -95,3 +115,10 @@ Made some small fixes, editing a story will show the previous page along with th
 
 SelenaH -- 2022-11-14 18:24
 Finished CSS for all pages. Updated README formatting.
+
+JoshuaL -- 2022-11-14 8:04 PM 
+Finished up the revised design doc, removed the links/pages table from the list because we ended up not using it and changed 
+	some sections about certain pages that were wrong.
+ 	and made sure the repo had all required files.
+	also found a bug when the home page tried to display stories, but there aren't any. (fixed)
+	deleted the old db and made a dummy.db with a few stories and accounts.
